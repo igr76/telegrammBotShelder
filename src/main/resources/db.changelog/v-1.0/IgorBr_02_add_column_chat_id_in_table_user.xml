@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="add_column_chat_id_in_table_user" author="IgorBr">
+<addColumn tableName="adoptive_parent">
+    <column name="chat_id" type="bigserial" remarks="number chat">
+      <constraints nullable="false"/>
+    </column>
+</addColumn>
+        <rollback>
+            <dropColumn tableName="adoptive_parent" columnName="chat_id"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

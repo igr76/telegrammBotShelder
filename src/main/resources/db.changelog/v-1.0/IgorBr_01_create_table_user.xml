@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="create new table adoptive_parent" author="IgorBr">
+        <createTable tableName="adoptive_parent">
+            <column name="id" type="bigserial" autoIncrement="true" remarks="identification">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="full_name" type="text" remarks="full name of the person wishing to adopt the animal">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="text" remarks="phone number of the person wishing to adopt the animal">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state" type="text"
+              remarks="progress (stage) at which the person who took the animal to himself is.">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_parent" type="boolean" remarks="is he an adoptive parent">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="adoptive_parent"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

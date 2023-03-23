@@ -1,0 +1,5 @@
+
+ALTER TABLE pet ADD COLUMN pet_type VARCHAR;
+
+
+
